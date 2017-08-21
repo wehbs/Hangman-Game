@@ -11,12 +11,18 @@
 
 <body>
   
-  <input id="my-input" type="text" />
-
-<script type="text/javascript">
-    var textbox = document.getElementById('my-input');
-    textbox.select();
-</script>
+  <button id="openKeyboard">Open Keyboard</button>
+<input id="hiddenInput" style="visibility: hidden;">
+  
+  
+  <script>
+  document.getElementById('openKeyboard').addEventListener('click', function(){
+    var inputElement = document.getElementById('hiddenInput');
+    inputElement.style.visibility = 'visible'; // unhide the input
+    inputElement.focus(); // focus on it so keyboard pops
+    inputElement.style.visibility = 'hidden'; // hide it again
+});
+  </script>
 
   <div class="container">
 
