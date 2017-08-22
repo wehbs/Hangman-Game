@@ -15,32 +15,32 @@ var guessesLeft = 9;
 // FUNCTIONS (Reusable blocks of code that I will call upon when needed)
 // =====================================================================
 function startGame() {
+  // Chooses a random word from my wordOptions array
   selectedWord = wordOptions[Math.floor(Math.random() * wordOptions.length)];
+  // Fills in the lettersinWord variable with the value of the random word chosen and then splits the contents of the string into multiple items in an array
   lettersinWord = selectedWord.split("");
+  // Figures out how many blanks I need based on the length of the random word that was chosen and injects that value into the numBlanks variable
   numBlanks = lettersinWord.length;
 
-  // Reset
+  // Reset's these variables after a win or lose
   guessesLeft = 9;
   wrongLetters = [];
   blanksAndSuccesses = [];
 
-  // Populate blanks and successes with right number of blanks.
+  // Populate blanksAndSuccesses array with right number of blanks based on the length of the random word chosen / .push = push an item into an array
   for (var i = 0; i < numBlanks; i++) {
     blanksAndSuccesses.push("_");
   }
 
-  // Change HTML to reflect round conditions
+  // Change the wordToGuess HTML ID by joining the elements of my blanksAndSuccesses array into a String
   document.getElementById("wordToGuess").innerHTML = blanksAndSuccesses.join(" ");
+  // Change the amount of guesses left within my remain HTML ID to the value of my guessesLeft variable
   document.getElementById("remain").innerHTML = guessesLeft;
+  // Change the amount of wins within my wins HTML ID to the value of my guessesLeft variable
   document.getElementById("wins").innerHTML = winCount;
 
-  // Testing / Debugging
-  console.log(selectedWord);
-  console.log(lettersinWord);
-  console.log(numBlanks);
-  console.log(blanksAndSuccesses);
 }
-
+  // Function that creates a new variabe to hold the value of whether the letter is in the word or not. It does this by initially assigning the value of false to the isLetterInWord variabe. Then it assigns the argument letter to the function. 
 function checkLetters(letter) {
   // Check if letter exist in word at all
   var isLetterInWord = false;
