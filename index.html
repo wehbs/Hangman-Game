@@ -3,30 +3,22 @@
 
 <head>
   <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
   <title>Hangman</title>
 </head>
 
 <body>
-  
-  <div class="container">
-  
-  <button id="openKeyboard">Open Keyboard</button>
-<input id="hiddenInput" style="visibility: hidden;">
-  
-  
-  <script>
-  document.getElementById('openKeyboard').addEventListener('click', function(){
-    var inputElement = document.getElementById('hiddenInput');
-    inputElement.style.visibility = 'visible'; // unhide the input
-    inputElement.focus(); // focus on it so keyboard pops
-    inputElement.style.visibility = 'hidden'; // hide it again
-});
-  </script>
 
-  
+  <div class="container">
+
+    <!-- Show keyboard on mobile devices -->
+    <div class="row hidden-lg">
+      <button id="openKeyboard" type="button" class="btn btn-info">Open Keyboard</button>
+      <input id="hiddenInput" style="visibility: hidden;">
+    </div>
+
 
     <div class="row">
 
@@ -42,7 +34,7 @@
       <!-- right side column -->
       <div class="col-md-6">
         <div class="jumbotron">
-          <h2>Guess the Crypto!</h2>
+          <h2>Guess the Cryptocurrency!</h2>
           <h1 id="wordToGuess">_ _ _ _ _ _ _</h1>
           <p></p>
         </div>
