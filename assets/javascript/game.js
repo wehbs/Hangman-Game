@@ -40,7 +40,7 @@ function startGame() {
   document.getElementById("wins").innerHTML = winCount;
 
 }
-// Function that contains a new variabe to hold the value true/false of whether the letter is in the word or not. It does this by initially assigning the value of false to the isLetterInWord variabe. Then it assigns the argument (letter) to the function. The argument is later changed to run the "letterGuessed" variable which is found later in the code and also now "letter" and "letterGuessed" are the same value which contains the letter pressed by the user. Since numBlanks is already equal to lettersinWord.length I can use it in the for loop. Then if the the letter pressed matches one of the letters from the selected word it is true if not is false which tells if the letter even exists in the word at all.
+// Function that contains a new variabe to hold the boolean value true/false of whether the letter is in the word or not. It does this by initially assigning the value of false to the isLetterInWord variabe. Then it assigns the argument (letter) to the function. The argument is later changed to run the "letterGuessed" variable which is found later in the code and also now "letter" and "letterGuessed" are the same value which contains the letter pressed by the user. Since numBlanks is already equal to lettersinWord.length I can use it in the for loop. Then if the the letter pressed matches one of the letters from the selected word it is true if not is false which tells if the letter even exists in the word at all.
 function checkLetters(letter) {
   var isLetterInWord = false;
   for (var i = 0; i < numBlanks; i++) {
@@ -69,17 +69,19 @@ function checkLetters(letter) {
 }
 
 function roundComplete() {
-  // CONTINUE TO EDIT COMMENTING HERE_______________________________________________________>
+  // Change the amount of guesses left within my remain HTML ID to the value of my guessesLeft variable.
   document.getElementById("remain").innerHTML = guessesLeft;
+  // Change the wordToGuess HTML ID by joining the elements of my blanksAndSuccesses array into a String.
   document.getElementById("wordToGuess").innerHTML = blanksAndSuccesses.join(" ");
+  // Takes the wrong letters and joins them into a string which fills in the HTML element with ID guessed.
   document.getElementById("guessed").innerHTML = wrongLetters.join(" ");
 
-  // Check if user won.
+  // Check if user won then add 1 to win count and show an alert saying you won.
   if (lettersinWord.toString() == blanksAndSuccesses.toString()) {
     winCount++;
     alert("You Won!");
 
-    // Update the win counter in the HTML.
+    // Update the win counter in the HTML to match the winCount variable.
     document.getElementById("wins").innerHTML = winCount;
 
     startGame();
@@ -99,7 +101,7 @@ function roundComplete() {
 // MAIN PROCESS
 // =====================================================================
 
-// Initiates the code the first time.
+// Start the game for the first time.
 startGame();
 
 // Register keyclicks.
