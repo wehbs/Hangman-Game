@@ -1,6 +1,4 @@
 // GLOBAL VARIABLES
-// =====================================================================
-// Variables for holding data
 var wordOptions = ["bitcoin", "ethereum", "litecoin"];
 var selectedWord = "";
 var lettersinWord = [];
@@ -13,7 +11,6 @@ var winCount = 0;
 var guessesLeft = 9;
 
 // FUNCTIONS
-// =====================================================================
 function startGame() {
   // Chooses a random word from my wordOptions array.
   selectedWord = wordOptions[Math.floor(Math.random() * wordOptions.length)];
@@ -98,8 +95,6 @@ function roundComplete() {
 
 }
 
-// MAIN PROCESS
-// =====================================================================
 
 // Start the game for the first time.
 startGame();
